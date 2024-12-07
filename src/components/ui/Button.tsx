@@ -1,3 +1,15 @@
-export default function Button() {
-  return <button></button>;
+"use client";
+
+export default function Button({
+  isLoading,
+  children,
+}: {
+  isLoading: boolean;
+  children: React.ReactNode;
+}) {
+  return (
+    <button disabled={isLoading} type="submit">
+      {children}
+    </button>
+  );
 }
