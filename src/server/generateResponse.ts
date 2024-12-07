@@ -16,6 +16,9 @@ export async function generateResponse(formData: FormData) {
     model: "llama3.1:8b-instruct-q4_0",
     messages: [...formattedMessages, { role: "user", content: prompt }],
     stream: true,
+    /* options: {
+      num_ctx: 8192,
+    }, */
   });
 
   return res;

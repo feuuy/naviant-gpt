@@ -1,7 +1,11 @@
 import type { Metadata } from "next";
-import "./globals.css";
+import { Inter } from "next/font/google";
 
-import TextArea from "@/components/ui/TextArea";
+import "./globals.css";
+import Navbar from "@/components/layout/Navbar";
+import TextArea from "@/components/layout/TextArea";
+
+const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Naviant",
@@ -16,7 +20,8 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <main>
+        <main className={inter.className}>
+          <Navbar />
           {children}
           <TextArea />
         </main>
