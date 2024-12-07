@@ -9,5 +9,9 @@ export default function Response() {
 
   if (!response) return null;
 
-  return <Markdown className="whitespace-pre-wrap">{response}</Markdown>;
+  return (
+    <Markdown className="whitespace-pre-wrap p-4 pb-36 pt-20">
+      {response}
+    </Markdown>
+  );
 }

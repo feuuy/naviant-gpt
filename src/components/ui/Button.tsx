@@ -11,7 +11,7 @@ export default function Button({
     <button
       disabled={isLoading}
       type="submit"
-      className="bg-blue-500 rounded-full p-2"
+      className="bg-blue-500 rounded-full p-3"
     >
       {children}
     </button>
