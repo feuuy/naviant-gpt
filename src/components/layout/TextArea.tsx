@@ -7,15 +7,17 @@ import { generateResponse } from "@/server/generateResponse";
 import Send from "@/icons/Send";
 import Button from "../ui/Button";
 import { createMessage } from "@/server/createMessage";
+import { useModelStore } from "@/hooks/useModelStore";
 
 export default function TextArea() {
   const { isLoading, setResponse, setIsLoading, resetResponse } =
     useResponseStore();
+  const { model } = useModelStore();
 
   async function handleFormSubmit(formData: FormData) {
     resetResponse();
     setIsLoading(true);
-    const res = await generateResponse(formData);
+    const res = await generateResponse(formData, model);
     let messageContent = "";
     for await (const part of res) {
       messageContent += part.message.content;
