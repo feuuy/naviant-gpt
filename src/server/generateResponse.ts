@@ -3,7 +3,7 @@
 import ollama from "ollama";
 import prisma from "@/lib/prisma";
 
-export async function generateResponse(formData: FormData) {
+export async function generateResponse(formData: FormData, model: string) {
   const prompt = formData.get("prompt") as string;
 
   const messages = await prisma.message.findMany({ orderBy: { id: "asc" } });
@@ -13,7 +13,7 @@ export async function generateResponse(formData: FormData) {
   }));
 
   const res = await ollama.chat({
-    model: "llama3.1:8b-instruct-q4_0",
+    model: model,
     messages: [...formattedMessages, { role: "user", content: prompt }],
     stream: true,
     options: {
