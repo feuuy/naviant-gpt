@@ -4,6 +4,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/layout/Navbar";
 import TextArea from "@/components/layout/TextArea";
+import MobileMenu from "@/components/layout/MobileMenu";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -21,6 +22,7 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <main className={inter.className}>
+          <MobileMenu />
           <Navbar />
           {children}
           <TextArea />
